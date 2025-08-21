@@ -22,7 +22,7 @@ const closeMenu = () => {
   <header class="header">
     <div class="container">
       <div class="logo">
-        <h1>DevPortfolio</h1>
+        <h1>Nicolas Freitas</h1>
       </div>
       
       <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle menu">
