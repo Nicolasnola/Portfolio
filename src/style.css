@@ -1,156 +1,274 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: #333;
-  background-color: #f8f9fa;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    background-color: #e8dcc8;
+    color: #1a1a1a;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+  }
 }
 
-.dark-mode {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-.dark-mode a {
-  color: #42b883;
-}
-
-.dark-mode a:hover {
-  color: #3aa876;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-.dark-mode button {
-  background-color: #1a1a1a;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-.dark-mode button:hover {
-  border-color: #42b883;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Reset some default styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ─── Arc Raiders stripe accent (left edge, logo element) ────── */
+.arc-stripe {
+  background: linear-gradient(
+    180deg,
+    #e33e33 0%,
+    /* red */ #ebad21 25%,
+    /* gold */ #79b433 50%,
+    /* green */ #00a699 75%,
+    /* teal */ #e33e33 100% /* red loop */
+  );
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.dark-mode ::-webkit-scrollbar-track {
-  background: #1a1a1a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #646cff;
-}
-
-.dark-mode ::-webkit-scrollbar-thumb:hover {
-  background: #42b883;
-}
-
-/* Utility classes */
-.btn {
-  padding: 0.8rem 1.8rem;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
+/* ─── Gold solid button ──────────────────────────────────────── */
+.arc-btn {
+  background-color: #ebad21;
+  color: #0a0a0a;
+  font-weight: 700;
+  padding: 1rem 2rem;
   display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  transition: color 0.4s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.primary {
-  background: linear-gradient(90deg, #646cff, #42b883);
-  color: white;
-  border: none;
+.arc-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e33e33; /* Site Red */
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
-.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.arc-btn:hover {
+  color: #ffffff;
 }
 
-.secondary {
-  border: 2px solid #646cff;
-  color: #646cff;
-  background: transparent;
+.arc-btn:hover::before {
+  transform: scaleX(1);
 }
 
-.dark-mode .secondary {
-  border-color: #42b883;
-  color: #42b883;
+/* ─── Outline button (white borders — on dark sections) ──────── */
+.arc-btn-outline {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.875rem 2rem;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  transition: all 0.3s;
+  text-align: center;
+  background-color: transparent;
+}
+.arc-btn-outline:hover {
+  background-color: #ffffff;
+  color: #0a0a0a;
 }
 
-.secondary:hover {
-  background: rgba(100, 108, 255, 0.1);
-  transform: translateY(-3px);
+/* ─── Outline on light bg ────────────────────────────────────── */
+.arc-btn-outline-dark {
+  border: 2px solid #1a1a1a;
+  color: #1a1a1a;
+  font-weight: 700;
+  padding: 0.875rem 2rem;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  transition: all 0.3s;
+  text-align: center;
+  background-color: transparent;
+}
+.arc-btn-outline-dark:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
-.dark-mode .secondary:hover {
-  background: rgba(66, 184, 131, 0.1);
+/* ─── Inputs (sand-themed) ───────────────────────────────────── */
+.arc-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid #d4c9b0;
+  color: #1a1a1a;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  backdrop-filter: blur(4px);
+}
+.arc-input::placeholder {
+  color: #9e917e;
+}
+.arc-input:focus {
+  border-color: #ebad21;
+}
+
+/* ─── Inputs on dark bg ──────────────────────────────────────── */
+.arc-input-dark {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+.arc-input-dark::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.arc-input-dark:focus {
+  border-color: #ebad21;
+}
+
+/* ─── Gold glow pulse ────────────────────────────────────────── */
+@keyframes gold-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(235, 173, 33, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(235, 173, 33, 0);
+  }
+}
+.gold-pulse {
+  animation: gold-pulse 2.5s ease infinite;
+}
+
+/* ─── Ticker (announcement bar) ─────────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 30s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── Marquee (logo bar) ─────────────────────────────────────── */
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 25s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── Swiper pagination (gold) ───────────────────────────────── */
+.swiper-projects .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #9e917e;
+  opacity: 1;
+}
+.swiper-projects .swiper-pagination-bullet-active {
+  background: #ebad21;
+  width: 24px;
+  border-radius: 2px;
+}
+
+/* ─── Card hover lift ────────────────────────────────────────── */
+.card-hover {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(10, 10, 10, 0.18);
+}
+
+/* ─── Arc hatched stripe bg (card accent) ───────────────────── */
+.arc-hatch {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(235, 173, 33, 0.18) 4px,
+    rgba(235, 173, 33, 0.18) 8px
+  );
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #e8dcc8;
+}
+::-webkit-scrollbar-thumb {
+  background: #ebad21;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9931a;
+}
+
+/* ─── Section divider (diagonal slash) ──────────────────────── */
+.arc-divider {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.arc-divider-bottom {
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ─── Vignette overlay (dark sections) ──────────────────────── */
+.arc-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  pointer-events: none;
 }
