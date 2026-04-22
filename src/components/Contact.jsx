@@ -3,11 +3,38 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 
 export default function Contact() {
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Enviando....");
+    const formData = new FormData(event.target);
+
+    // Substitua pela sua chave do Web3Forms
+    formData.append("access_key", "dc738506-d6ad-4202-9fdf-a90e88d837e8");
+    formData.append(
+      "message",
+      "Olá Nicolas! Você recebeu um novo contato interessado em seus serviços através do seu Portfolio. Seguem os dados abaixo:"
+    );
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Mensagem enviada com sucesso!");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden py-28 bg-arc-sand"
-    >
+    <section id="contact" className="relative overflow-hidden py-28 bg-arc-sand">
       {/* Left stripe */}
       <div className="absolute left-0 top-0 bottom-0 w-[6px] arc-stripe pointer-events-none z-10" />
 
@@ -58,17 +85,53 @@ export default function Contact() {
             </p>
 
             {/* Email form */}
-            <div className="flex flex-col sm:flex-row items-stretch gap-0 max-w-lg mx-auto mb-6">
+            <form onSubmit={onSubmit} className="max-w-2xl mx-auto space-y-4">
+              <input type="hidden" name="from_name" value="Portfolio Contact" />
               <input
-                type="email"
-                id="contact-email"
-                placeholder="name@company.com"
-                className="arc-input-dark flex-1 text-base"
+                type="hidden"
+                name="subject"
+                value="Novo contato do Portfolio"
               />
-              <button className="arc-btn px-8 py-4 flex items-center justify-center gap-2 whitespace-nowrap">
-                Enviar <ArrowRight className="w-5 h-5" />
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Seu Nome"
+                  className="arc-input-dark w-full text-base py-4"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Seu E-mail"
+                  className="arc-input-dark w-full text-base py-4"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  placeholder="Seu Telefone"
+                  className="arc-input-dark w-full text-base py-4"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="arc-btn w-full py-5 flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-[0.2em] gold-pulse"
+              >
+                Solicitar Contato <ArrowRight className="w-5 h-5" />
               </button>
-            </div>
+            </form>
+
+            {result && (
+              <div className="mt-6 p-4 border border-arc-gold/20 bg-arc-gold/5">
+                <p className="text-sm font-bold text-arc-gold uppercase tracking-widest animate-pulse">
+                  {result}
+                </p>
+              </div>
+            )}
 
             <p className="text-xs text-white/30 font-medium uppercase tracking-wider">
               Teste trabalhar comigo por sete dias grátis. Cancele quando

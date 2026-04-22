@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, ArrowUpRight } from "lucide-react";
 
 const links = [
   {
@@ -35,9 +35,12 @@ const links = [
 ];
 
 const socials = [
-  { icon: Github, label: "GitHub", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
+  { icon: Github, label: "GitHub", href: "https://github.com/Nicolasnola" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/nicolasfreitasfarias/",
+  },
 ];
 
 export default function Footer() {
@@ -89,6 +92,8 @@ export default function Footer() {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-10 h-10 border border-white/20 hover:border-arc-gold hover:text-arc-gold text-white/60 flex items-center justify-center transition-colors"
                 >

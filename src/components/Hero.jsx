@@ -26,9 +26,9 @@ export default function Hero() {
     >
       {/* ─── Background dark cinematic gradient ──────────────── */}
       <motion.div
-        style={{ y: bgY }}
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
+          y: bgY,
           background:
             "radial-gradient(ellipse 80% 70% at 50% 30%, #2A1A00 0%, #0A0A0A 70%)",
         }}
@@ -82,7 +82,7 @@ export default function Hero() {
               className="text-4xl sm:text-5xl md:text-[80px] font-black tracking-tight text-white leading-[1.1] md:leading-[1.0] mb-5 md:mb-6 uppercase break-words"
             >
               TRANSFORMANDO IDEIAS EM <br className="hidden md:block" />
-              <span className="text-arc-gold">SOLUÇÕES DIGITAIS</span>
+              SOLUÇÕES DIGITAIS
             </motion.h1>
 
             {/* Subtitle */}

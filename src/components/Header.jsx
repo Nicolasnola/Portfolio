@@ -45,11 +45,10 @@ export default function Header() {
 
       {/* ─── Header ──────────────────────────────────────────── */}
       <motion.header
-        className={`sticky top-0 w-full z-40 transition-all duration-300 ${
-          isScrolled
-            ? "bg-arc-sand/80 backdrop-blur-md shadow-arc border-b border-arc-sand-dark"
-            : "bg-arc-sand border-b border-arc-sand-dark"
-        }`}
+        className={`sticky top-0 w-full z-40 transition-all duration-300 ${isScrolled
+          ? "bg-arc-sand/80 backdrop-blur-md shadow-arc border-b border-arc-sand-dark"
+          : "bg-arc-sand border-b border-arc-sand-dark"
+          }`}
       >
         {/* Rainbow stripe — top edge (Arc Raiders signature) */}
         <div className="w-full h-[3px] arc-stripe" />
