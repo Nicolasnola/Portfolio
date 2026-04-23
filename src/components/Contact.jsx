@@ -10,12 +10,8 @@ export default function Contact() {
     setResult("Enviando....");
     const formData = new FormData(event.target);
 
-    // Substitua pela sua chave do Web3Forms
+    // Chave de acesso do Web3Forms
     formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
-    formData.append(
-      "message",
-      "Olá Nicolas! Você recebeu um novo contato interessado em seus serviços através do seu Portfolio. Seguem os dados abaixo:"
-    );
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -86,6 +82,11 @@ export default function Contact() {
 
             {/* Email form */}
             <form onSubmit={onSubmit} className="max-w-2xl mx-auto space-y-4">
+              <input 
+                type="hidden" 
+                name="Mensagem" 
+                value="Olá Nicolas! Você recebeu um novo contato interessado em seus serviços através do seu Portfolio. Seguem os dados abaixo:" 
+              />
               <input type="hidden" name="from_name" value="Portfolio Contact" />
               <input
                 type="hidden"
