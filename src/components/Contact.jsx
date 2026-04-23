@@ -11,7 +11,7 @@ export default function Contact() {
     const formData = new FormData(event.target);
 
     // Substitua pela sua chave do Web3Forms
-    formData.append("access_key", "dc738506-d6ad-4202-9fdf-a90e88d837e8");
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
     formData.append(
       "message",
       "Olá Nicolas! Você recebeu um novo contato interessado em seus serviços através do seu Portfolio. Seguem os dados abaixo:"
