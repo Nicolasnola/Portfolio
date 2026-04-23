@@ -170,9 +170,9 @@ export default function Skills() {
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-arc-gold" />
 
           <p className="text-2xl md:text-3xl font-bold leading-relaxed text-arc-ink mb-8">
-            "Nicolas transformou completamente nossa presença digital. As
+            "Nicolas Freitas transformou completamente nossa presença digital. As
             animações e o design ficaram incríveis — nossas conversões
-            aumentaram 373%."
+            aumentaram 100 %."
           </p>
           <div className="flex items-center gap-4">
             <div

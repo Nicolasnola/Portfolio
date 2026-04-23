@@ -1,11 +1,12 @@
 import React from "react";
 import { Github, Linkedin, ArrowUpRight } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const links = [
   {
     title: "Portfolio",
     items: [
-      "Nicolas One",
+      "Nicolas Freitas One",
       "Projetos",
       "Habilidades",
       "Case Studies",
@@ -64,22 +65,10 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2">
             {/* Mini stripe bars (logo) */}
-            <div className="flex gap-[3px] h-7 items-end mb-4">
-              {["#E33E33", "#EBAD21", "#79B433", "#00A699"].map((c, i) => (
-                <span
-                  key={i}
-                  style={{
-                    backgroundColor: c,
-                    height: `${100 - i * 16}%`,
-                    width: "5px",
-                    borderRadius: "1px",
-                  }}
-                />
-              ))}
-            </div>
+            <img src={logo} alt="Logo" className="h-9 w-auto object-contain mb-4" />
             <a href="#" className="flex items-center gap-2 mb-4">
               <span className="font-black text-xl tracking-tighter uppercase">
-                Nicolas<span className="text-arc-gold">.</span>
+                Nicolas Freitas<span className="text-arc-gold">.</span>
               </span>
             </a>
             <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-xs">
@@ -129,7 +118,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
           <p>
-            © 2008 – {new Date().getFullYear()} Nicolas Portfolio. All rights
+            © 2008 – {new Date().getFullYear()} Nicolas Freitas Portfolio. All rights
             reserved.
           </p>
           <div className="flex flex-wrap gap-6 justify-center">

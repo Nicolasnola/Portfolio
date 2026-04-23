@@ -6,45 +6,52 @@ import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import "swiper/css";
 import "swiper/css/pagination";
 
+// Project Images
+import imgTubeTv from "../assets/images/projects/Captura de tela 2026-04-23 105054.png";
+import imgLaraStore from "../assets/images/projects/Captura de tela 2026-04-23 105312.png";
+import imgTheBox from "../assets/images/projects/Captura de tela 2026-04-23 105430.png";
+import imgLexLegacy from "../assets/images/projects/Captura de tela 2026-04-23 105734.png";
+import imgLuminaDental from "../assets/images/projects/Captura de tela 2026-04-23 111112.png";
+
 // Stripe accent colors for each card top bar
 const CATEGORY_COLORS = {
-  "SEMRUSH ONE": "#00A699",
-  SEO: "#EBAD21",
-  "VISIBILIDADE NA IA": "#79B433",
-  "OPEN SOURCE": "#E33E33",
-  MOBILE: "#EBAD21",
+  STREAMING: "#E33E33",
+  "E-COMMERCE": "#79B433",
+  "AGÊNCIA DIGITAL": "#00A699",
+  JURÍDICO: "#EBAD21",
+  SAÚDE: "#E33E33",
 };
 
 const projects = [
   {
-    category: "SEMRUSH ONE",
-    title: "Dashboard de Analytics em Tempo Real",
-    desc: "Plataforma de visualização de dados com gráficos interativos, filtros avançados e exportação em PDF.",
-    bg: "from-arc-sand to-arc-sand-dark",
+    category: "STREAMING",
+    title: "Tube TV - Plataforma de Canais 24/7",
+    desc: "Experiência de streaming contínuo com curadoria de conteúdo e interface inspirada em smart TVs modernas.",
+    image: imgTubeTv,
   },
   {
-    category: "SEO",
-    title: "E-commerce com Checkout Otimizado",
-    desc: "Loja completa com Stripe, carrinho em tempo real, filtros dinâmicos e taxa de conversão +40%.",
-    bg: "from-arc-sand to-arc-sand-dark",
+    category: "E-COMMERCE",
+    title: "LaraStore - Tecnologia e Performance",
+    desc: "Loja virtual de alta conversão focada em eletrônicos, com checkout fluido e design orientado ao usuário.",
+    image: imgLaraStore,
   },
   {
-    category: "VISIBILIDADE NA IA",
-    title: "SaaS de Gestão de Times",
-    desc: "Aplicação colaborativa com drag-and-drop, notificações em tempo real e dark mode perfeito.",
-    bg: "from-arc-sand to-arc-sand-dark",
+    category: "AGÊNCIA DIGITAL",
+    title: "theBox Creative - Experiência Digital",
+    desc: "Landing page institucional para agência criativa, utilizando tipografia impactante e layout minimalista.",
+    image: imgTheBox,
   },
   {
-    category: "OPEN SOURCE",
-    title: "Biblioteca de Componentes UI",
-    desc: "Design system completo com 50+ componentes, temas customizáveis e documentação interativa.",
-    bg: "from-arc-sand to-arc-sand-dark",
+    category: "JURÍDICO",
+    title: "Lex & Legacy - Advocacia de Elite",
+    desc: "Presença digital sóbria e confiável para escritório jurídico, com foco em conversão e autoridade.",
+    image: imgLexLegacy,
   },
   {
-    category: "MOBILE",
-    title: "App de Finanças Pessoais",
-    desc: "Aplicativo React Native com gráficos de gastos, metas financeiras e scanner de recibos por IA.",
-    bg: "from-arc-sand to-arc-sand-dark",
+    category: "SAÚDE",
+    title: "Lumina Dental - Odontologia Premium",
+    desc: "Website para clínica odontológica boutique, transmitindo sofisticação, cuidado e tecnologia de ponta.",
+    image: imgLuminaDental,
   },
 ];
 
@@ -141,17 +148,26 @@ export default function Projects() {
                     className="bg-arc-sand-light border border-arc-sand-dark overflow-hidden h-full flex flex-col cursor-pointer group"
                   >
                     {/* Card image area with accent top bar */}
-                    <div className="relative h-52 bg-gradient-to-br from-arc-sand to-arc-sand-dark flex items-end p-6 overflow-hidden">
+                    <div className="relative h-56 overflow-hidden">
                       {/* Top color stripe */}
                       <div
-                        className="absolute top-0 left-0 right-0 h-1"
+                        className="absolute top-0 left-0 right-0 h-1 z-20"
                         style={{ backgroundColor: accentColor }}
                       />
-                      {/* Hatch pattern */}
-                      <div className="absolute inset-0 arc-hatch opacity-40" />
+                      
+                      {/* Project Image */}
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+
+                      {/* Overlay Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-arc-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                       {/* Plus button top right */}
                       <button
-                        className="ml-auto w-10 h-10 flex items-center justify-center border-2 transition-colors z-10"
+                        className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center border-2 transition-colors z-20"
                         style={{ borderColor: accentColor, color: accentColor }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.backgroundColor = accentColor;

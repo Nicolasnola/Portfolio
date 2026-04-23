@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,13 +32,13 @@ export default function Header() {
               <span className="text-arc-ink">✦</span>
               <span>Desenvolvimento React &amp; UI/UX</span>
               <span className="text-arc-ink">✦</span>
-              <span>Portfólio 2025 — Nicolas Nola</span>
+              <span>Portfólio 2026</span>
               <span className="text-arc-ink">✦</span>
               <span>Disponível para novos projetos</span>
               <span className="text-arc-ink">✦</span>
               <span>Desenvolvimento React &amp; UI/UX</span>
               <span className="text-arc-ink">✦</span>
-              <span>Portfólio 2025 — Nicolas Nola</span>
+              <span>Portfólio 2026</span>
             </span>
           ))}
         </div>
@@ -58,22 +59,9 @@ export default function Header() {
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 group">
               {/* Mini stripe bars (logo-alike) */}
-              <div className="flex gap-[3px] h-6 items-end">
-                {["#E33E33", "#EBAD21", "#79B433", "#00A699"].map((c, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      backgroundColor: c,
-                      width: "4px",
-                      height: `${100 - i * 16}%`,
-                      borderRadius: "2px",
-                      display: "inline-block",
-                    }}
-                  />
-                ))}
-              </div>
+              <img src={logo} alt="Logo" className="h-8 w-auto object-contain" />
               <span className="font-black text-xl tracking-tighter text-arc-ink uppercase">
-                Nicolas<span className="text-arc-gold">.</span>
+                Nicolas Freitas<span className="text-arc-gold">.</span>
               </span>
             </a>
 
@@ -92,12 +80,6 @@ export default function Header() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <a
-                href="#about"
-                className="text-sm font-bold uppercase tracking-wider text-arc-muted hover:text-arc-ink transition-colors px-3 py-2"
-              >
-                Login
-              </a>
               <a
                 href="#contact"
                 className="arc-btn py-2.5 px-6 text-xs gold-pulse"

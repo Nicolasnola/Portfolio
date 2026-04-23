@@ -3,15 +3,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 
 const BRANDS = [
-  "Amazon",
-  "Netflix",
-  "Airbnb",
-  "TikTok",
-  "Dropbox",
-  "Notion",
-  "Spotify",
+  "PHP",
+  "Laravel",
+  "JavaScript",
+  "React",
+  "React Native",
+  "Vue",
+  "Docker",
+  "MySQL",
+  "SQLite",
   "Vercel",
-  "Discord",
 ];
 
 export default function Hero() {
@@ -105,16 +106,10 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
             >
               <a
-                href="#contact"
+                href="#projects"
                 className="arc-btn flex-nowrap whitespace-nowrap h-[52px] md:h-[60px] flex items-center justify-center gap-2 gold-pulse text-xs md:text-[15px] w-[240px] md:w-[280px]"
               >
                 Ver Projetos
-              </a>
-              <a
-                href="#about"
-                className="arc-btn-outline flex-nowrap whitespace-nowrap h-[52px] md:h-[60px] text-xs md:text-[15px] flex items-center justify-center w-[240px] md:w-[280px]"
-              >
-                Assistir ao Reel
               </a>
             </motion.div>
 
@@ -144,7 +139,7 @@ export default function Hero() {
       {/* ─── Brand marquee strip ─────────────────────────────── */}
       <div className="relative z-10 border-t border-white/10 bg-arc-black/80 py-6">
         <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.3em] text-center mb-4">
-          Tecnologias &amp; Clientes
+          Tecnologias de alta performance
         </p>
         <div className="marquee-wrapper">
           <div className="marquee-track">

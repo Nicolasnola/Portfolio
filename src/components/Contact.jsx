@@ -132,11 +132,6 @@ export default function Contact() {
                 </p>
               </div>
             )}
-
-            <p className="text-xs text-white/30 font-medium uppercase tracking-wider">
-              Teste trabalhar comigo por sete dias grátis. Cancele quando
-              quiser.
-            </p>
           </div>
         </motion.div>
       </div>
